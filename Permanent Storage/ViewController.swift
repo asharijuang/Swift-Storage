@@ -12,7 +12,26 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // Add object and stored to NSuserDefault
+        NSUserDefaults.standardUserDefaults().setObject("Ashari Juang", forKey: "name")
+        
+        let username = NSUserDefaults.standardUserDefaults().objectForKey("name")! as! String
+        
+        print(username)
+        // Buat variabel data array
+        let array = [1, 2, 3, 4]
+        // Simpan array kedalam nsuserdefaults
+        NSUserDefaults.standardUserDefaults().setObject(array, forKey: "ArrayData")
+        
+        // Mengambil object berdasarkan key, kemudian mengconvert menjadi NSArray
+        let returnArray = NSUserDefaults.standardUserDefaults().objectForKey("ArrayData")! as! NSArray
+        
+        // Menampilkan x partial
+        for x in returnArray {
+            print(x)
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
